@@ -1,0 +1,11 @@
+@use "sass:color";
+
+$color1: red;
+$color2: blue;
+$color3: green;
+$border: solid color.adjust($color1, $lightness: -20%);
+// $h1-last-sect: 1px solid green;
+// $article-border: 1px solid blue;
+// $div-height: 50vh;
+// $gap: 10px;
+// $height: 111px;

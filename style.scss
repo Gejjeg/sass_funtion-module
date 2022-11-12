@@ -1,0 +1,45 @@
+@use "sass:color";
+@use "variables.scss" as v;
+@use "function.scss" as f;
+
+@mixin article-box($color, $border-color, $font-size: 1rem) {
+   color: color.adjust($color, $lightness: -10%);
+   border: f.unit-conversion(1) solid color.adjust($border-color, $lightness: 0%);
+   font-size: $font-size;  
+   padding: f.unit-conversion(10) f.unit-conversion(20);
+   text-align: center;
+}
+h1 {
+   color: v.$color3;
+   text-align: center;
+   max-width: f.unit-conversion(305);
+   margin: f.unit-conversion(25) auto 0;
+   border-bottom: f.unit-conversion(3) solid color.adjust(v.$color2, $lightness: +30%);
+}
+div {
+   // height: $div-height;
+   border: f.unit-conversion(1) v.$border;
+   margin: f.unit-conversion(10);
+   // padding: $gap;
+}
+section {
+   // max-width: 100%;
+   display: grid;
+   margin: f.unit-conversion(5) f.unit-conversion(10);
+   padding: f.unit-conversion(10);
+   grid-template-columns: repeat(4, 1fr);
+   // grid-template-rows: 1fr;
+}
+.blue {
+   @include article-box(blue, green)
+}
+.red {
+   @include article-box(red, green)
+}
+.footer {
+   @include article-box(v.$color3, v.$color2, f.unit-conversion(24));
+   margin: f.unit-conversion(5) f.unit-conversion(20) f.unit-conversion(15);
+   padding: f.unit-conversion(15) f.unit-conversion(10);
+   display: grid;
+   grid-template-columns: 4fr;
+}
